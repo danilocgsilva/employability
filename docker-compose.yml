@@ -5,7 +5,7 @@ services:
     container_name: employability_dev
     volumes:
       - './code:/var/www'
-      - './env/.ssh/:/root/.ssh'
+      - './env/ssh/:/root/.ssh'
     ports:
       - '1290:80'
     working_dir: /var/www
