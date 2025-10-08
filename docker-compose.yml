@@ -8,6 +8,8 @@ services:
       - './env/ssh/:/root/.ssh'
     ports:
       - '1290:80'
+      - '8000:8000'
+      - '5173:5173'
     working_dir: /var/www
   employability_db_dev:
     image: 'mysql:latest'

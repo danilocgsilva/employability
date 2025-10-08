@@ -3,7 +3,7 @@ FROM php:8.4.7-apache-bookworm
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y curl git zip
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+RUN docker-php-ext-install mysqli pdo pdo_mysql pcntl
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - 
 RUN apt-get install -y nodejs
