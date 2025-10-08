@@ -1,8 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
-namespace App\Repositories;
+namespace App\Repositories\Interfaces;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -19,11 +17,11 @@ interface RepositoryInterface
         string $direction = 'asc'
     ): LengthAwarePaginator;
 
-    public function find($id): ?object;
+    public function find(int $id): ?object;
 
     public function create(array $data): object;
 
-    public function update($id, array $data): ?object;
+    public function update(int $id, array $data): ?object;
 
-    public function delete($id): bool;
+    public function delete(int $id): bool;
 }
