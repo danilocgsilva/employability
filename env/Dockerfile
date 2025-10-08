@@ -3,6 +3,7 @@ FROM php:8.4.7-apache-bookworm
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y curl git zip
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin/ --filename=composer
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - 
 RUN apt-get install -y nodejs
@@ -12,3 +13,4 @@ COPY /config/000-default.conf /etc/apache2/sites-available/
 RUN chmod +x /startup.sh
 
 CMD sh /startup.sh
+
