@@ -2,7 +2,7 @@ services:
   employability_dev:
     build:
       context: env
-    container_name: employability
+    container_name: employability_dev
     volumes:
       - './code:/var/www'
       - './env/.ssh/:/root/.ssh'
@@ -11,7 +11,7 @@ services:
     working_dir: /var/www
   employability_db_dev:
     image: 'mysql:latest'
-    container_name: employability_db
+    container_name: employability_db_dev
     environment:
       - MYSQL_ROOT_PASSWORD=strongpassword
     ports:
