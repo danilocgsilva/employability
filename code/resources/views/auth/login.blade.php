@@ -24,7 +24,7 @@
                         <p class="text-gray-400 text-sm mt-2">Access your account</p>
                     </div>
 
-                    <div>
+                    <form method="POST" action="{{ route('login') }}">
                         <div class="space-y-6">
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
@@ -74,15 +74,22 @@
                                         Remember me
                                     </label>
                                 </div>
-                                <a href="#" class="text-sm text-gray-300 hover:text-white transition-colors">
-                                    Forgot password?
-                                </a>
+
+                                @if (Route::has('password.request'))
+                                    <a class="text-sm text-gray-300 hover:text-white transition-colors" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
                             </div>
 
-                            <button id="login-button"
+
+
+                            <button type="submit" id="login-button"
                                 class="w-full bg-gray-700 text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all transform hover:scale-[1.02] active:scale-[0.98]">
                                 Sign In
                             </button>
+
+
                         </div>
 
                         <div class="mt-8 relative">
@@ -99,7 +106,7 @@
                                 Create a new account
                             </a>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
                 <p class="text-center text-gray-400 text-sm mt-8">
