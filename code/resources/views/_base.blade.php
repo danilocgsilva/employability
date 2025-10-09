@@ -86,7 +86,7 @@
 
 <body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
     <!-- Navigation -->
-    <nav class="bg-gray-900 border-b border-gray-700 shadow-lg">
+    <nav class="{{ $baseModelView->getBackgroundMain() }} border-b border-gray-700 shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">

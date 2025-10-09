@@ -2,4 +2,5 @@
 
 a2enmod rewrite
 service apache2 start
-composer dev
+# composer dev
+while : ; do sleep 1000; done

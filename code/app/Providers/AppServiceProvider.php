@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Interfaces\RepositoryInterface;
 use App\Repositories\Eloquent\UserRepository;
+use Illuminate\Support\Facades\View;
+use App\ModelsView;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::composer('*', function ($view) {
+            $view->with('baseModelView', new ModelsView\Base());
+        });
     }
 }

@@ -25,6 +25,7 @@
                     </div>
 
                     <form method="POST" action="{{ route('login') }}">
+                        @csrf
                         <div class="space-y-6">
                             <div>
                                 <label for="email" class="block text-sm font-medium text-gray-300 mb-2">
@@ -41,7 +42,7 @@
                                         </svg>
                                     </div>
                                     <input id="email" type="email"
-                                        class="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
+                                        class="w-full pl-10 pr-4 py-3 {{ $baseModelView->getBackground2() }} border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                                         placeholder="you@company.com" />
                                 </div>
                             </div>
@@ -61,7 +62,7 @@
                                         </svg>
                                     </div>
                                     <input id="password" type="password"
-                                        class="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
+                                        class="w-full pl-10 pr-4 py-3 {{ $baseModelView->getBackground2() }} border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition-all"
                                         placeholder="••••••••" />
                                 </div>
                             </div>
@@ -69,7 +70,7 @@
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
                                     <input id="remember" type="checkbox"
-                                        class="h-4 w-4 text-gray-600 bg-gray-800 border-gray-600 rounded focus:ring-gray-500" />
+                                        class="h-4 w-4 text-gray-600 {{ $baseModelView->getBackground2() }} border-gray-600 rounded focus:ring-gray-500" />
                                     <label for="remember" class="ml-2 block text-sm text-gray-300">
                                         Remember me
                                     </label>
@@ -97,7 +98,7 @@
                                 <div class="w-full border-t border-gray-700"></div>
                             </div>
                             <div class="relative flex justify-center text-sm">
-                                <span class="px-2 bg-gray-900 text-gray-400">Don't have an account?</span>
+                                <span class="px-2 {{ $baseModelView->getBackgroundMain() }} text-gray-400">Don't have an account?</span>
                             </div>
                         </div>
 
