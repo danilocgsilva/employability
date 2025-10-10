@@ -24,7 +24,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
-            $view->with('baseModelView', new ModelsView\Base());
+            $view->with('baseModelView', new ModelsView\BaseLightSchema());
+            // $view->with('baseModelView', new ModelsView\BaseDarkSchema());
         });
     }
 }
