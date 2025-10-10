@@ -197,24 +197,6 @@
         const loginButton = document.getElementById('login-button');
         const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('password');
-
-        function handleSubmit() {
-            const email = emailInput.value;
-            const password = passwordInput.value;
-
-            if (email && password) {
-                alert('Login successful! (Demo only)');
-            }
-        }
-
-        loginButton.addEventListener('click', handleSubmit);
-
-        // Allow Enter key to submit form
-        passwordInput.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                handleSubmit();
-            }
-        });
     </script>
 </body>
 
