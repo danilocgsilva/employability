@@ -39,4 +39,8 @@ interface BaseInterface
     public function getButtonTextColor(): string;
 
     public function getBackgroundIcon(): string;
+
+    public function getMarginContent($session): string;
+
+    public function getInputClasses(bool $error = false): string;
 }

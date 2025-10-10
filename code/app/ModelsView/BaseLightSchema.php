@@ -6,7 +6,7 @@ namespace App\ModelsView;
 
 use App\ModelsView\Traits;
 
-class BaseLightSchema implements BaseInterface
+class BaseLightSchema extends Base implements BaseInterface
 {
     use Traits\BackgroundLayoutLight;
     use Traits\TextColorsLight;

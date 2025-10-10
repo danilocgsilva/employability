@@ -61,7 +61,9 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                background: {{ $baseModelView->getOverlay() }};
+                background:
+                    {{ $baseModelView->getOverlay() }}
+                ;
                 opacity: 0;
                 visibility: hidden;
                 transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
@@ -77,12 +79,12 @@
 </head>
 
 <body class="min-h-screen bg-gradient-to-br {{ $baseModelView->getGradient() }}">
-    <!-- Navigation -->
     <nav class="{{ $baseModelView->getBackgroundMain() }} border-b {{ $baseModelView->getBorder() }} shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
-                    <h1 class="text-2xl font-bold {{ $baseModelView->getTextMain() }}">Enterprise<span class="{{ $baseModelView->getTextMain() }}">Hub</span></h1>
+                    <h1 class="text-2xl font-bold {{ $baseModelView->getTextMain() }}">Enterprise<span
+                            class="{{ $baseModelView->getTextMain() }}">Hub</span></h1>
                 </div>
 
                 <div class="hidden md:block">
@@ -116,7 +118,8 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="md:hidden {{ $baseModelView->getBackground2() }} border-t {{ $baseModelView->getBorder() }}">
+        <div id="mobile-menu"
+            class="md:hidden {{ $baseModelView->getBackground2() }} border-t {{ $baseModelView->getBorder() }}">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="{{ route('welcome') }}"
                     class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} block px-3 py-2 text-base font-medium transition-colors hover:{{ $baseModelView->getBackground3() }} rounded">Home</a>
@@ -134,6 +137,8 @@
 
     <!-- Overlay for mobile menu (only visible on mobile) -->
     <div id="mobile-menu-overlay" class="md:hidden"></div>
+
+    @include('_flash_messages')
 
     @yield('content')
 

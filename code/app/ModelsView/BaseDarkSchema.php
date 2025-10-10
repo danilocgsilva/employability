@@ -6,7 +6,7 @@ namespace App\ModelsView;
 
 use App\ModelsView\Traits;
 
-class BaseDarkSchema implements BaseInterface
+class BaseDarkSchema extends Base implements BaseInterface
 {
     use Traits\BackgroundLayoutDark;
     use Traits\TextColorsDark;
