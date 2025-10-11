@@ -43,4 +43,8 @@ interface BaseInterface
     public function getMarginContent($session): string;
 
     public function getInputClasses(bool $error = false): string;
+
+    public function getMobileMenu(): string;
+
+    public function getDesktopMenu(): string;
 }

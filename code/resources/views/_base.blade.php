@@ -89,23 +89,13 @@
 
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
-                        <a href="{{ route('welcome') }}"
-                            class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} px-3 py-2 text-sm font-medium transition-colors">Home</a>
-                        <a href="#"
-                            class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} px-3 py-2 text-sm font-medium transition-colors">Products</a>
-                        <a href="#"
-                            class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} px-3 py-2 text-sm font-medium transition-colors">Solutions</a>
-                        <a href="#"
-                            class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} px-3 py-2 text-sm font-medium transition-colors">About</a>
-                        <a href="#"
-                            class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                        {!! $baseModelView->getDesktopMenu() !!}
                     </div>
                 </div>
 
                 <div class="md:hidden">
                     <button id="menu-toggle"
                         class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} p-2 transition-transform hover:scale-110">
-                        <!-- Default hamburger icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                             class="lucide lucide-menu" aria-hidden="true">
@@ -121,16 +111,7 @@
         <div id="mobile-menu"
             class="md:hidden {{ $baseModelView->getBackground2() }} border-t {{ $baseModelView->getBorder() }}">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="{{ route('welcome') }}"
-                    class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} block px-3 py-2 text-base font-medium transition-colors hover:{{ $baseModelView->getBackground3() }} rounded">Home</a>
-                <a href="#"
-                    class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} block px-3 py-2 text-base font-medium transition-colors hover:{{ $baseModelView->getBackground3() }} rounded">Products</a>
-                <a href="#"
-                    class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} block px-3 py-2 text-base font-medium transition-colors hover:{{ $baseModelView->getBackground3() }}0 rounded">Solutions</a>
-                <a href="#"
-                    class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} block px-3 py-2 text-base font-medium transition-colors hover:{{ $baseModelView->getBackground3() }} rounded">About</a>
-                <a href="#"
-                    class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} block px-3 py-2 text-base font-medium transition-colors hover:{{ $baseModelView->getBackground3() }} rounded">Contact</a>
+                {!! $baseModelView->getMobileMenu() !!}
             </div>
         </div>
     </nav>

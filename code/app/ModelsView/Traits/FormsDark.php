@@ -30,6 +30,4 @@ trait FormsDark
     {
         return "rgba(0, 0, 0, 0.5)";
     }
-
-    
 }
