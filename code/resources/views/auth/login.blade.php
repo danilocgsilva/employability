@@ -23,63 +23,6 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="space-y-6">
-
-                            <div>
-                                <label for="email"
-                                    class="block text-sm font-medium {{ $baseModelView->getTextSecondary() }} mb-2">
-                                    Email Address
-                                </label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="@if ($errors->has('email') || $errors->has('password')) text-red-500 @else {{ $baseModelView->getTextQuaternary() }} @endif"
-                                            aria-hidden="true">
-                                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-                                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                                        </svg>
-                                    </div>
-                                    <input id="email" type="email" name="email"
-                                        class="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
-                                        placeholder="youremail@company.com" />
-                                </div>
-                                <p class="mt-2 text-sm text-red-400 flex items-center">
-                                    <i class="fas fa-exclamation-triangle mr-2 text-xs"></i>
-                                </p>
-                            </div>
-
-                            <div>
-                                <label for="password"
-                                    class="block text-sm font-medium {{ $baseModelView->getTextSecondary() }} mb-2">
-                                    Password
-                                </label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            class="@if ($errors->has('email') || $errors->has('password')) text-red-500 @else {{ $baseModelView->getTextQuaternary() }} @endif"
-                                            aria-hidden="true">
-                                            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
-                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                                        </svg>
-                                    </div>
-                                    <input id="password" type="password" name="password"
-                                        class="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
-                                        placeholder="••••••••" />
-                                </div>
-
-                                @if (session('errors'))
-                                    @if (session('errors')->first('email') || session('errors')->first('password'))
-                                        <p class="mt-1 text-sm text-red-600 flex items-center">
-                                            <i class="fas fa-exclamation-triangle mr-1 text-xs"></i>
-                                            Check if the e-mail or password are correct.
-                                        </p>
-                                    @endif
-                                @endif
-                            </div>
-
                             <div class="space-y-6">
                                 <x-input
                                     name="email" 
@@ -90,7 +33,18 @@
                                     input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
                                     input-validation-error-message=""
                                     show-error-message="false"
-                                />
+                                >
+                                    <x-slot:iconSvg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="@if ($errors->has('email') || $errors->has('password')) text-red-500 @else {{ $baseModelView->getTextQuaternary() }} @endif"
+                                            aria-hidden="true">
+                                            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                                        </svg>
+                                    </x-slot>
+                                </x-input>
 
                                 <x-input 
                                     name="password" 
@@ -101,7 +55,18 @@
                                     input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
                                     input-validation-error-message="Check if the e-mail or password are correct."
                                     show-error-message="{{ session('errors')?->first('email') || session('errors')?->first('password') }}"
-                                />
+                                >
+                                    <x-slot:iconSvg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            class="@if ($errors->has('email') || $errors->has('password')) text-red-500 @else {{ $baseModelView->getTextQuaternary() }} @endif"
+                                            aria-hidden="true">
+                                            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                        </svg>
+                                    </x-slot>
+                                </x-input>
                             </div>
 
                             <div class="flex items-center justify-between">
