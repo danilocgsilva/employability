@@ -23,6 +23,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="space-y-6">
+
                             <div>
                                 <label for="email"
                                     class="block text-sm font-medium {{ $baseModelView->getTextSecondary() }} mb-2">
@@ -71,12 +72,36 @@
 
                                 @if (session('errors'))
                                     @if (session('errors')->first('email') || session('errors')->first('password'))
-                                    <p class="mt-1 text-sm text-red-600 flex items-center">
-                                        <i class="fas fa-exclamation-triangle mr-1 text-xs"></i>
-                                        Check if the e-mail or password are correct.
-                                    </p>
+                                        <p class="mt-1 text-sm text-red-600 flex items-center">
+                                            <i class="fas fa-exclamation-triangle mr-1 text-xs"></i>
+                                            Check if the e-mail or password are correct.
+                                        </p>
                                     @endif
                                 @endif
+                            </div>
+
+                            <div class="space-y-6">
+                                <x-input
+                                    name="email" 
+                                    type="text" 
+                                    label="Email Address"
+                                    placeholder="youremail@company.com"
+                                    input-id="email"
+                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
+                                    input-validation-error-message=""
+                                    show-error-message="false"
+                                />
+
+                                <x-input 
+                                    name="password" 
+                                    type="password" 
+                                    label="Password"
+                                    placeholder="••••••••" 
+                                    input-id="password" 
+                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
+                                    input-validation-error-message="Check if the e-mail or password are correct."
+                                    show-error-message="{{ session('errors')?->first('email') || session('errors')?->first('password') }}"
+                                />
                             </div>
 
                             <div class="flex items-center justify-between">
