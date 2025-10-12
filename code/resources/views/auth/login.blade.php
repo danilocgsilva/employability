@@ -31,8 +31,6 @@
                                     placeholder="youremail@company.com"
                                     input-id="email"
                                     input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
-                                    input-validation-error-message=""
-                                    show-error-message="false"
                                 >
                                     <x-slot:iconSvg>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"

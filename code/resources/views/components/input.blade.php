@@ -8,7 +8,7 @@
         </div>
         <input
             id="{{ $inputId }}" type="{{ $type ?? 'text' }}" name="{{ $name }}"
-            class="{{ $inputClasses ?? "" }}"
+            class="{{ $inputClasses ?? '' }}"
             placeholder="{{ $placeholder }}" />
     </div>
 
@@ -16,7 +16,7 @@
         @if (session('errors')->first('email') || session('errors')->first('password'))
             <p class="mt-1 text-sm text-red-600 flex items-center">
                 <i class="fas fa-exclamation-triangle mr-1 text-xs"></i>
-                {{ $inputValidationErrorMessage ?? "" }}
+                {{ $inputValidationErrorMessage }}
             </p>
         @endif
     @endif
