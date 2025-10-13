@@ -15,8 +15,7 @@ class Input extends Component
         public string $placeholder,
         public string $inputId,
         public string $inputClasses,
-        public string $inputValidationErrorMessage = '',
-        public bool $showErrorMessage = false,
+        public string $inputValidationErrorMessage = ''
     ) {}
 
     /**

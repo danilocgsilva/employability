@@ -52,7 +52,6 @@
                                     input-id="password" 
                                     input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
                                     input-validation-error-message="Check if the e-mail or password are correct."
-                                    show-error-message="{{ session('errors')?->first('email') || session('errors')?->first('password') }}"
                                 >
                                     <x-slot:iconSvg>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"

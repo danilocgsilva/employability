@@ -27,8 +27,15 @@
                         @csrf
                         <div class="space-y-6">
                             <div class="space-y-6">
-                                <x-input name="name" type="text" label="Name" placeholder="Your Name" input-id="email"
-                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}">
+                                <x-input 
+                                    name="name" 
+                                    type="text" 
+                                    label="Name" 
+                                    placeholder="Your Name" 
+                                    input-id="email"
+                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('name')) }}"
+                                    input-validation-error-message="{{ session('errors')?->first('name') }}"
+                                >
                                     <x-slot:iconSvg>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -40,11 +47,12 @@
                                         </x-slot>
                                 </x-input>
 
-                                <x-input name="email" type="email" label="Email Address" placeholder="youremail@company.com"
+                                <x-input 
+                                    name="email" type="email" label="Email Address" placeholder="youremail@company.com"
                                     input-id="password"
                                     input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
                                     input-validation-error-message="Check if the e-mail or password are correct."
-                                    show-error-message="{{ session('errors')?->first('email') || session('errors')?->first('password') }}">
+                                >
                                     <x-slot:iconSvg>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -59,7 +67,7 @@
                                     input-id="password"
                                     input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
                                     input-validation-error-message="Check if the e-mail or password are correct."
-                                    show-error-message="{{ session('errors')?->first('email') || session('errors')?->first('password') }}">
+                                >
                                     <x-slot:iconSvg>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                             fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -69,24 +77,32 @@
                                         </svg>
                                         </x-slot>
                                 </x-input>
-                            </div>
 
-                            <div class="flex items-center justify-between">
-                                <div class=" flex items-center">
-                                    <input id="remember" type="checkbox"
-                                        class="h-4 w-4 text-gray-600 {{ $baseModelView->getBackground2() }} {{ $baseModelView->getDivider() }} rounded focus:ring-gray-500" />
-                                    <label for="remember"
-                                        class="ml-2 block text-sm {{ $baseModelView->getTextSecondary() }}">
-                                        Remember me
-                                    </label>
-                                </div>
 
-                                @if (Route::has('password.request'))
-                                    <a class="text-sm {{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} transition-colors"
-                                        href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
+
+
+
+                                <x-input
+                                    name="password_confirmation"
+                                    type="password" 
+                                    label="Confirm Password"
+                                    placeholder="••••••••"
+                                    input-id="password-confirm"
+                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
+                                    input-validation-error-message="Check if the e-mail or password are correct."
+                                >
+                                    <x-slot:iconSvg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="text-gray-500">
+                                        <path d="M12 15v2"></path>
+                                        <path d="M12 19h.01"></path>
+                                        <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path>
+                                    </svg>
+                                        </x-slot>
+                                </x-input>
+
                             </div>
 
                             <button type="submit" id="login-button"
@@ -96,112 +112,26 @@
 
                         </div>
 
-                        <div class="mt-8 relative">
-                            <div class="absolute inset-0 flex items-center">
-                                <div class="w-full border-t {{ $baseModelView->getBorder() }}"></div>
-                            </div>
-                            <div class=" relative flex justify-center text-sm">
-                                <span
-                                    class="px-2 {{ $baseModelView->getBackgroundMain() }} {{ $baseModelView->getTextTertiary() }}">Don't
-                                    have an account?</span>
-                            </div>
+                    <div class="mt-8 relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-700"></div>
                         </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-gray-900 text-gray-400">Already have an account?</span>
+                        </div>
+                    </div>
 
-                        <div class="mt-6 text-center">
-                            <a href="#"
-                                class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} font-medium transition-colors">
-                                Create a new account
-                            </a>
-                        </div>
+                    <div class="mt-6 text-center">
+                        <a href="{{ route('login') }}"
+                            class="text-gray-300 hover:text-white font-medium transition-colors">
+                            Sign in instead
+                        </a>
+                    </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
-
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
-                            <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                        name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                    @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-
-
-
-                            
-
-                            <div class="row mb-3">
-                                <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        required autocomplete="new-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
-                                        name="password_confirmation" required autocomplete="new-password">
-                                </div>
-                            </div>
-
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Register') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 @endsection

@@ -14,7 +14,7 @@
         />
     </div>
 
-    @if (session('errors') && $showErrorMessage)
+    @if (session('errors'))
         @if (session('errors')->first('email') || session('errors')->first('password'))
             <p class="mt-1 text-sm text-red-600 flex items-center">
                 <i class="fas fa-exclamation-triangle mr-1 text-xs"></i>

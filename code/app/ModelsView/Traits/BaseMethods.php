@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\ModelsView\Traits;
 
+use App\Support\Menu;
+
 trait BaseMethods
 {
     public function getMarginContent($session): string
@@ -31,7 +33,7 @@ trait BaseMethods
     private function getMenu(string $entryClasses): string
     {
         $menuString = "";
-        foreach ($this->getMenuList() as $item) {
+        foreach (Menu::getMenuList() as $item) {
             $entryMenuBase = "<a href='%s' class='%s'>%s</a>";
 
             $route = $item['route'];
@@ -52,23 +54,5 @@ trait BaseMethods
     private function getDesktopClassesMenu(): string
     {
         return $this->getTextSecondary() . " hover:" . $this->getTextMain() . " px-3 py-2 text-sm font-medium transition-colors";
-    }
-
-    private function getMenuList()
-    {
-        return [
-            [
-                'name' => 'Home',
-                'route' => route('welcome'),
-            ],
-            [
-                'name' => 'Login',
-                'route' => route('login'),
-            ],
-            [
-                'name' => 'Register',
-                'route' => route('register'),
-            ],
-        ];
     }
 }
