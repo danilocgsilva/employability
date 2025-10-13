@@ -9,7 +9,9 @@
         <input
             id="{{ $inputId }}" type="{{ $type ?? 'text' }}" name="{{ $name }}"
             class="{{ $inputClasses ?? '' }}"
-            placeholder="{{ $placeholder }}" />
+            placeholder="{{ $placeholder }}"
+            value="{{ old($name) }}"
+        />
     </div>
 
     @if (session('errors') && $showErrorMessage)

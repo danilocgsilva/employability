@@ -104,19 +104,14 @@
                         </div>
 
                         <div class="mt-6 text-center">
-                            <a href="#"
+                            <a href="{{ route('register') }}"
                                 class="{{ $baseModelView->getTextSecondary() }} hover:{{ $baseModelView->getTextMain() }} font-medium transition-colors">
                                 Create a new account
                             </a>
                         </div>
                     </form>
                 </div>
-
-                <p class="text-center {{ $baseModelView->getTextTertiary() }} text-sm mt-8">
-                    © 2025 EnterpriseHub. All rights reserved.
-                </p>
             </div>
         </div>
     </div>
-
 @endsection
