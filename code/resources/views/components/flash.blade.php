@@ -7,7 +7,7 @@
                         <i class="fas fa-exclamation-circle text-red-500 text-lg"></i>
                     </div>
                     <div class="ml-3">
-                        <h3 class="text-sm font-medium text-red-800">Login failed</h3>
+                        <h3 class="text-sm font-medium text-red-800">{{ $primaryData }}</h3>
                         <div class="mt-1 text-sm text-red-700">
                             <p>The email or password you entered is incorrect. Please try again.</p>
                         </div>

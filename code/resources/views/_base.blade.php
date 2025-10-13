@@ -116,10 +116,13 @@
         </div>
     </nav>
 
-    <!-- Overlay for mobile menu (only visible on mobile) -->
     <div id="mobile-menu-overlay" class="md:hidden"></div>
 
-    @include('_flash_messages')
+    <x-flash 
+        primary-data="Login failed"
+        secondary-data="Login failed"
+        tertiary-data="Login failed"
+    />
 
     @yield('content')
 
