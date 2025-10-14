@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use App\Repositories\Interfaces\RepositoryInterface;
 use App\Repositories\Eloquent\UserRepository;
 use Illuminate\Support\Facades\View;
-use App\ModelsView;
+use App\TemplateModels;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,8 +24,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
-            // $view->with('baseModelView', new ModelsView\BaseLightSchema());
-            $view->with('baseModelView', new ModelsView\BaseDarkSchema());
+            // $view->with('baseModelView', new TemplateModels\BaseLightSchema());
+            $view->with('baseModelView', new TemplateModels\BaseDarkSchema());
         });
     }
 }

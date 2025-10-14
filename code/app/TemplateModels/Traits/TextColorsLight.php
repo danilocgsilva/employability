@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace App\ModelsView\Traits;
+namespace App\TemplateModels\Traits;
 
-trait TextColorsDark
+trait TextColorsLight
 {
     public function getTextMain(): string
     {
-        return "text-white";
+        return "text-gray-900";
     }
 
     public function getTextSecondary(): string
     {
-        return "text-gray-300";
+        return "text-gray-700";
     }
 
     public function getTextTertiary(): string
     {
-        return "text-gray-400";
+        return "text-gray-600";
     }
 
     public function getTextQuaternary(): string
@@ -31,3 +31,4 @@ trait TextColorsDark
         return "text-white";
     }
 }
+

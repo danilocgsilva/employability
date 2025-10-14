@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\ModelsView;
+namespace App\TemplateModels;
 
-use App\ModelsView\Traits;
+use App\TemplateModels\Traits;
 
 class BaseDarkSchema extends Base implements BaseInterface
 {

@@ -2,32 +2,32 @@
 
 declare(strict_types=1);
 
-namespace App\ModelsView\Traits;
+namespace App\TemplateModels\Traits;
 
-trait BackgroundLayoutDark
+trait BackgroundLayoutLight
 {
     public function getBackgroundMain(): string
     {
-        return "bg-gray-900";
+        return "bg-white";
     }
 
     public function getBackground2(): string
     {
-        return "bg-gray-800";
+        return "bg-gray-50";
     }
 
     public function getBackground3(): string
     {
-        return "bg-gray-700";
+        return "bg-gray-200";
     }
 
     public function getGradient(): string
     {
-        return "from-gray-900 via-gray-800 to-gray-900";
+        return "from-gray-50 via-gray-100 to-gray-50";
     }
 
     public function getBackgroundIcon(): string
     {
-        return "bg-gray-700";
+        return "bg-gray-200";
     }
 }

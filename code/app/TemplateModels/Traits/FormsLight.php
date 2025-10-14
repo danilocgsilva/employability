@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\ModelsView\Traits;
+namespace App\TemplateModels\Traits;
 
 trait FormsLight
 {

@@ -10,4 +10,4 @@ For front-end, the application must be responsive. Reaching a specific window wi
 
 ## Dark and Light mode
 
-The `View::composer` is used to add data to all views for a implementation of `App\ModelsView\BaseInterface`. The object is responsible to inject into views some Tailwind styles styles. The views should use the methods from this implementation where it is needed to apply classes that will set the dark or light schema.
+The `View::composer` is used to add data to all views for a implementation of `App\TemplateModels\BaseInterface`. The object is responsible to inject into views some Tailwind styles styles. The views should use the methods from this implementation where it is needed to apply classes that will set the dark or light schema.
