@@ -44,14 +44,18 @@
                                             <path d="M4 21v-2a4 4 0 0 1 3-3.87"></path>
                                             <circle cx="12" cy="7" r="4"></circle>
                                         </svg>
-                                        </x-slot>
+                                    </x-slot>
                                 </x-input>
 
+
                                 <x-input 
-                                    name="email" type="email" label="Email Address" placeholder="youremail@company.com"
+                                    name="email" 
+                                    type="email" 
+                                    label="Email Address" 
+                                    placeholder="youremail@company.com"
                                     input-id="password"
-                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
-                                    input-validation-error-message="Check if the e-mail or password are correct."
+                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('email')) }}"
+                                    input-validation-error-message="{{ session('errors')?->first('email') }}"
                                 >
                                     <x-slot:iconSvg>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -60,13 +64,17 @@
                                             <rect width="20" height="16" x="2" y="4" rx="2"></rect>
                                             <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                                         </svg>
-                                        </x-slot>
+                                    </x-slot>
                                 </x-input>
 
-                                <x-input name="password" type="password" label="Password" placeholder="••••••••"
+
+                                <x-input name="password"
+                                    type="password" 
+                                    label="Password" 
+                                    placeholder="••••••••"
                                     input-id="password"
-                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
-                                    input-validation-error-message="Check if the e-mail or password are correct."
+                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('password')) }}"
+                                    input-validation-error-message="{{ session('errors')?->first('password') }}"
                                 >
                                     <x-slot:iconSvg>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
@@ -75,11 +83,8 @@
                                             <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
                                             <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                         </svg>
-                                        </x-slot>
+                                    </x-slot>
                                 </x-input>
-
-
-
 
 
                                 <x-input
@@ -88,22 +93,24 @@
                                     label="Confirm Password"
                                     placeholder="••••••••"
                                     input-id="password-confirm"
-                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('email') || $errors->has('password')) }}"
-                                    input-validation-error-message="Check if the e-mail or password are correct."
+                                    input-classes="{{ $baseModelView->getInputClasses($errors->has('password_confirmation')) }}"
+                                    input-validation-error-message="{{ session('errors')?->first('password_confirmation') }}"
                                 >
                                     <x-slot:iconSvg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round"
-                                        class="text-gray-500">
-                                        <path d="M12 15v2"></path>
-                                        <path d="M12 19h.01"></path>
-                                        <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path>
-                                    </svg>
-                                        </x-slot>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="text-gray-500">
+                                            <path d="M12 15v2"></path>
+                                            <path d="M12 19h.01"></path>
+                                            <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"></path>
+                                        </svg>
+                                    </x-slot>
                                 </x-input>
 
+
                             </div>
+
 
                             <button type="submit" id="login-button"
                                 class="w-full {{ $baseModelView->getButton() }} {{ $baseModelView->getButtonTextColor() }} py-3 px-4 rounded-lg font-medium {{ $baseModelView->getButtonHover() }} focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all transform hover:scale-[1.02] active:scale-[0.98]">
