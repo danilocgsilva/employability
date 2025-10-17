@@ -14,12 +14,11 @@
         />
     </div>
 
-    @if (session('errors'))
-        @if (session('errors')->first('email') || session('errors')->first('password'))
+    @if ($inputValidationErrorMessage)
             <p class="mt-1 text-sm text-red-600 flex items-center">
                 <i class="fas fa-exclamation-triangle mr-1 text-xs"></i>
                 {{ $inputValidationErrorMessage }}
             </p>
-        @endif
     @endif
+
 </div>
