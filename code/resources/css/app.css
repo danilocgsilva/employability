@@ -15,27 +15,86 @@
 }
 
 input.bg-autofill-light:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px #f0f0f0 inset !important;
-  -webkit-text-fill-color: #000 !important;
-  transition: background-color 5000s ease-in-out 0s;
+    -webkit-box-shadow: 0 0 0 1000px #f0f0f0 inset !important;
+    -webkit-text-fill-color: #000 !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 input.bg-autofill-light:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px #e0e0e0 inset !important;
-  -webkit-text-fill-color: #111 !important;
+    -webkit-box-shadow: 0 0 0 1000px #e0e0e0 inset !important;
+    -webkit-text-fill-color: #111 !important;
 }
 
 input.bg-autofill-dark:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px rgb(31 41 55) inset !important;
-  -webkit-text-fill-color: #000 !important;
-  transition: background-color 5000s ease-in-out 0s;
+    -webkit-box-shadow: 0 0 0 1000px rgb(31 41 55) inset !important;
+    -webkit-text-fill-color: #000 !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 input.bg-autofill-dark:-webkit-autofill:focus {
-  -webkit-box-shadow: 0 0 0 1000px #e0e0e0 inset !important;
-  -webkit-text-fill-color: #111 !important;
+    -webkit-box-shadow: 0 0 0 1000px #e0e0e0 inset !important;
+    -webkit-text-fill-color: #111 !important;
 }
 
-/* div {
-    border: 1px solid #f00;
-} */
+#mobile-menu {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+#mobile-menu.open {
+    max-height: 300px;
+    opacity: 1;
+}
+
+button,
+a,
+input {
+    transition: all 0.2s ease-in-out;
+}
+
+
+@media (max-width: 767px) {
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+    }
+
+    body {
+        padding-top: 4rem;
+        /* h-16 = 4rem */
+    }
+
+    /* Blur effect for page content when menu is open */
+    #page-content {
+        transition: filter 0.3s ease-in-out;
+    }
+
+    body.menu-open #page-content {
+        filter: blur(4px);
+        pointer-events: none;
+    }
+
+    /* Optional overlay behind mobile menu */
+    #mobile-menu-overlay {
+        position: fixed;
+        top: 4rem;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        z-index: 40;
+    }
+
+    body.menu-open #mobile-menu-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+}

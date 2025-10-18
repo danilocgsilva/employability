@@ -9,71 +9,13 @@
     @vite('resources/css/app.css')
 
     <style>
-        /* Fixed mobile menu animation */
-        #mobile-menu {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
-        }
-
-        #mobile-menu.open {
-            max-height: 300px;
-            opacity: 1;
-        }
-
-        /* Smooth transitions for all interactive elements */
-        button,
-        a,
-        input {
-            transition: all 0.2s ease-in-out;
-        }
 
         /* Fixed top navigation for mobile */
         @media (max-width: 767px) {
-            nav {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                z-index: 50;
-            }
-
-            body {
-                padding-top: 4rem;
-                /* h-16 = 4rem */
-            }
-
-            /* Blur effect for page content when menu is open */
-            #page-content {
-                transition: filter 0.3s ease-in-out;
-            }
-
-            body.menu-open #page-content {
-                filter: blur(4px);
-                pointer-events: none;
-            }
-
-            /* Optional overlay behind mobile menu */
-            #mobile-menu-overlay {
-                position: fixed;
-                top: 4rem;
-                left: 0;
-                right: 0;
-                bottom: 0;
+            
                 background:
                     {{ $baseModelView->getOverlay() }}
                 ;
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-                z-index: 40;
-            }
-
-            body.menu-open #mobile-menu-overlay {
-                opacity: 1;
-                visibility: visible;
-            }
         }
     </style>
 </head>
