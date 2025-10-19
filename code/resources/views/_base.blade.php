@@ -9,8 +9,6 @@
     @vite('resources/css/app.css')
 
     <style>
-
-        /* Fixed top navigation for mobile */
         @media (max-width: 767px) {
             
                 background:
@@ -31,7 +29,7 @@
 
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-center space-x-8">
-                        {!! $baseModelView->getDesktopMenu() !!}
+                        {!! $baseModelView->getDesktopMenu(Auth::check()) !!}
                     </div>
                 </div>
 
@@ -53,7 +51,7 @@
         <div id="mobile-menu"
             class="md:hidden {{ $baseModelView->getBackground2() }} border-t {{ $baseModelView->getBorder() }}">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                {!! $baseModelView->getMobileMenu() !!}
+                {!! $baseModelView->getMobileMenu(Auth::check()) !!}
             </div>
         </div>
     </nav>
@@ -69,7 +67,6 @@
     @yield('content')
 
     <script>
-        // Mobile menu toggle functionality with animation
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const body = document.body;

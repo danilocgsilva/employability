@@ -16,14 +16,14 @@ trait BaseMethods
         return 'min-h-[calc(100vh-4rem)] py-12';
     }
 
-    public function getMobileMenu(): string
+    public function getMobileMenu(bool $logged = false): string
     {
         return $this->getMenu(
             $this->getMobileClassesMenu()
         );
     }
 
-    public function getDesktopMenu(): string
+    public function getDesktopMenu(bool $logged = false): string
     {
         return $this->getMenu(
             $this->getDesktopClassesMenu()
