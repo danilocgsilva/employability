@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\TemplateModels\Traits;
 
 use App\Support\Menu;
+use App\Support\UserAuthType;
 
 trait BaseMethods
 {
@@ -25,15 +26,24 @@ trait BaseMethods
 
     public function getDesktopMenu(bool $logged = false): string
     {
+        $isLogger = match($logged) {
+            true => UserAuthType::Authenticated,
+            false => UserAuthType::Guest,
+        };
+
         return $this->getMenu(
-            $this->getDesktopClassesMenu()
+            $this->getDesktopClassesMenu(),
+            $isLogger
         );
     }
 
-    private function getMenu(string $entryClasses): string
+    private function getMenu(string $entryClasses, UserAuthType $typeLogged): string
     {
         $menuString = "";
         foreach (Menu::getMenuList() as $item) {
+            if ($typeLogged !== $item['show_when']) {
+                continue;
+            }
             $entryMenuBase = "<a href='%s' class='%s'>%s</a>";
 
             $route = $item['route'];
