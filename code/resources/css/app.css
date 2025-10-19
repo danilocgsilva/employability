@@ -10,6 +10,10 @@
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+:root {
+    --color-white: #ffffff;
+}
+
 #menu-toggle:hover {
     cursor: pointer;
 }
@@ -98,3 +102,12 @@ input {
         visibility: visible;
     }
 }
+
+input:-webkit-autofill {
+  background-color: #f0fdf4 !important;
+  color: var(--color-white);
+  -webkit-text-fill-color: var(--color-white);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+
